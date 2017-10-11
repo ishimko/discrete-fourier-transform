@@ -46,7 +46,7 @@ class Drawer:
             self.draw_amplitudes(amps)
     
     def draw_amplitudes(self, amplitudes, linefmt='b'):
-        plt.stem(*self.plot_values(amplitudes[:len(amplitudes)//2]), linefmt=linefmt, markerfmt=' ', basefmt=' ')
+        plt.stem(*self.plot_values(amplitudes), linefmt=linefmt, markerfmt=' ', basefmt=' ')
 
     def show(self):
         plt.show()
