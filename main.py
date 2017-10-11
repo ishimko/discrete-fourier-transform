@@ -48,9 +48,7 @@ def main():
     # filter
     original = [test_polyharmonic_signal(i, N) for i in range(N)]
     spectrum = fourier_spectrum(original)
-    print(len(spectrum))
     spectrum_high_filtered = filter_signal(spectrum, lambda x: x < 15)
-    print(len(spectrum_high_filtered))
     high_filtered_signal = [restore_signal(i, spectrum_high_filtered) for i in range(N)]
     spectrum_low_filtered = filter_signal(spectrum, lambda x: x > 15)
     low_filtered_signal = [restore_signal(i, spectrum_low_filtered) for i in range(N)]
