@@ -51,4 +51,13 @@ def restore_signal(signal_index, fourier_spectrum):
 
 
 def filter_signal(spectrum, filter_predicate):
-    return list(map(lambda x: x[1] if filter_predicate(x[0]) else (0, 0), enumerate(spectrum)))
+    length = len(spectrum)
+    half_length = length // 2
+
+    def filter_helper(item):
+        index, value = item
+        if index > half_length:
+            index = length - index
+        return value if filter_predicate(index) else (0, 0)
+
+    return list(map(filter_helper, enumerate(spectrum)))
